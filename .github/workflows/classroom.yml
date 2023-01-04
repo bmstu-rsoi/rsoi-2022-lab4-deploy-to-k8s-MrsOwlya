@@ -21,6 +21,8 @@ jobs:
 
       - name: Kubectl
         uses: Azure/setup-kubectl@v3.1
+
+      - name: Kubectl conf
         run: |
           mkdir $HOME/.kube
           cp ./k8s/config $HOME/.kube/config
