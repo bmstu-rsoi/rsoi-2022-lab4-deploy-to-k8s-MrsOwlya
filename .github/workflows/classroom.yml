@@ -27,13 +27,14 @@ jobs:
           mkdir $HOME/.kube
           ls -la $HOME/.kube
           cp ./k8s/config $HOME/.kube/config
+          kubectl cluster-info
 
       - name: Deploy Helm
         run: |
           echo "HELM 1"
           helm upgrade databases k8s/postgres-chart
           echo "HELM 2"
-          helm install services k8s/services-chart
+          helm upgrade services k8s/services-chart
           sleep 30
 
       - name: Run API Tests
