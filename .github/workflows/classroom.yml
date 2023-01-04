@@ -33,7 +33,7 @@ jobs:
           echo "HELM 1"
           helm upgrade databases k8s/postgres-chart
           echo "HELM 2"
-          helm upgrade services k8s/services-chart
+          helm install services k8s/services-chart
           sleep 30
 
       - name: Run API Tests
