@@ -30,11 +30,10 @@ jobs:
 
       - name: Deploy Helm
         run: |
-          pwd
-          ls -la
+          helm delete services
+          helm delete databases
           echo "HELM 1"
           helm install databases k8s/postgres-chart
-          sleep 30
           echo "HELM 2"
           helm install services k8s/services-chart
           sleep 30
