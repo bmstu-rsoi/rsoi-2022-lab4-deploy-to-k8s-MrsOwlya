@@ -28,6 +28,7 @@ jobs:
 
       - name: Deploy Helm
         run: |
+          pwd
           cd k8s
           helm install databases k8s/postgres-chart
           helm install services k8s/services-chart
