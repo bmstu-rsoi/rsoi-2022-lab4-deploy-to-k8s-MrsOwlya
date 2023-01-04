@@ -25,6 +25,7 @@ jobs:
           kubectl config set-cluster lab4 --server=${{ secrets.K8S_SERVER }} --insecure-skip-tls-verify=true
           kubectl config set-credentials mrsowlya --token=${{ secrets.K8S_TOKEN }}
           kubectl config set-context default --cluster=lab4 --user=mrsowlya
+          kubectl config view --raw
 
       - name: Deploy Helm
         run: |
