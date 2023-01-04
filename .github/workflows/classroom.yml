@@ -30,12 +30,10 @@ jobs:
 
       - name: Deploy Helm
         run: |
-          helm delete services
-          helm delete databases
           echo "HELM 1"
-          helm install databases k8s/postgres-chart
+          helm upgrade databases k8s/postgres-chart
           echo "HELM 2"
-          helm install services k8s/services-chart
+          helm upgrade services k8s/services-chart
           sleep 30
 
       - name: Run API Tests
