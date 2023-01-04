@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bonus
+  labels:
+    env  : prod
+    app  : main
+    owner: MrsOwlya
+spec:
+  containers:
+    - name : bonus
+      image: mrsowlya/bonus:latest
+      ports:
+        - containerPort: 8050

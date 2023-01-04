@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ticket
+  labels:
+    env  : prod
+    app  : main
+    owner: MrsOwlya
+spec:
+  containers:
+    - name : ticket
+      image: mrsowlya/ticket:latest
+      ports:
+        - containerPort: 8070

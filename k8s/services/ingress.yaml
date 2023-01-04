@@ -1,0 +1,13 @@
+apiVersin: networking.k8s.io/vibetal
+kind: Ingress
+metadata:
+  name: ingress-hosts
+
+spec:
+  rules:
+    - host: www.lab4.com
+      http:
+        paths:
+          - backend:
+              serviceName: gateway
+              servicePort: 80
