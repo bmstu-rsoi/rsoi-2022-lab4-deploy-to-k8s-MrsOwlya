@@ -26,13 +26,13 @@ spec:
       containers:
         - name: {{ .Chart.Name}}
           imagePullPolicy: Always
-          image: mrsowlya/{{ .Values.service.image.name }}:{{ .Values.service.image.version }}
+          image: "{{ .Values.service.image.name }}:{{ .Values.service.image.version }}"
 
           env:
-            ${{ if .Values.service.database.name }}
+            {{ if .Values.service.database.name }}
             - name: DATABASE
-              value: "{{ .Values.service.database.name }}"
-            ${{- end }}
+             value: "{{ .Values.service.database.name }}"
+            {{- end }}
             - name: DB_HOST
               value: "{{ .Values.service.database.host }}"
             - name: DB_PORT
