@@ -20,12 +20,10 @@ jobs:
           docker-compose push
 
       - name: Kubectl
+        uses: Azure/setup-kubectl@v3.1
         run: |
-          set -x
-          kubectl config set-cluster lab4 --server=${{ secrets.K8S_SERVER }} --insecure-skip-tls-verify=true
-          kubectl config set-credentials mrsowlya --token=${{ secrets.K8S_TOKEN }}
-          kubectl config set-context default --cluster=lab4 --user=mrsowlya
-          kubectl config view --raw
+          mkdir $HOME/.kube
+          cp ./k8s/config $HOME/.kube/config
 
       - name: Deploy Helm
         run: |
