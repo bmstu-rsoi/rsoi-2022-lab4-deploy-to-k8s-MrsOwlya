@@ -30,8 +30,7 @@ jobs:
         run: |
           pwd
           ls -la
-          helm install databases k8s/postgres-chart
-          helm install services k8s/services-chart
+          helm install services services-chart
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
