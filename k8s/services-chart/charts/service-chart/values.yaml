@@ -1,10 +1,10 @@
 domain: com
 service:
   port:
+  isGateway:
   image:
     name:
     version:
-  isGateway:
 
   database:
     name:

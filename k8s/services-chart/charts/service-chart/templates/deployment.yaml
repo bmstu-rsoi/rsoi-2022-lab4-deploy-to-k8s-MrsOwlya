@@ -31,7 +31,7 @@ spec:
           env:
             {{ if .Values.service.database.name }}
             - name: DATABASE
-             value: "{{ .Values.service.database.name }}"
+              value: "{{ .Values.service.database.name }}"
             {{- end }}
             - name: DB_HOST
               value: "{{ .Values.service.database.host }}"
