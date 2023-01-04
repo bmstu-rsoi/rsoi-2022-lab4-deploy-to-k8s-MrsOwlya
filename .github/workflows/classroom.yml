@@ -32,6 +32,7 @@ jobs:
           ls -la
           helm install services k8s/postgres-chart
           helm install services k8s/services-chart
+          sleep 60
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
