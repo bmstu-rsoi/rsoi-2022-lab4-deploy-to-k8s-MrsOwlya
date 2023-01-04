@@ -30,6 +30,7 @@ jobs:
         run: |
           pwd
           ls -la
+          helm install services k8s/postgres-chart
           helm install services k8s/services-chart
 
       - name: Run API Tests
