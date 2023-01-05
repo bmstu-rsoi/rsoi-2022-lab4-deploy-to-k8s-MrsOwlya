@@ -19,35 +19,28 @@ services:
     container_name: gateway
     restart: on-failure
     ports:
-      - '8080:8080'
+      - "8080:8080"
 
   ticket:
     image: mrsowlya/ticket:latest
     container_name: ticket
     restart: on-failure
     ports:
-      - '8070:8070'
-    depends_on:
-      - db
+      - "8070:8070"
 
   flight:
     image: mrsowlya/flight:latest
     container_name: flight
     restart: on-failure
     ports:
-      - '8060:8060'
-    depends_on:
-      - db
+      - "8060:8060"
 
   bonus:
-    build: ./BonusService/
     image: mrsowlya/bonus:latest
     container_name: bonus
     restart: on-failure
     ports:
-      - '8050:8050'
-    depends_on:
-      - db
+      - "8050:8050"
 
 # TODO добавить сервисы
 

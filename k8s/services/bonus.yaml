@@ -1,14 +1,39 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: bonus
   labels:
-    env  : prod
-    app  : main
+    app  : lab4
     owner: MrsOwlya
 spec:
-  containers:
-    - name : bonus
-      image: mrsowlya/bonus:latest
-      ports:
-        - containerPort: 8050
+  selector:
+    matchLabels:
+      project: lab4
+  template:
+    metadata:
+      labels:
+        project: lab4
+    spec:
+      containers:
+        - name : bonus
+          image: mrsowlya/bonus:latest
+          ports:
+            - containerPort: 8050
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bonus
+  labels:
+    app  : lab4
+    owner: MrsOwlya
+spec:
+  selector:
+    project: lab4
+  ports:
+    - name      : app-listener
+      protocol  : TCP
+      port      : 8050
+      targetPort: 8050
+  type: ClusterIP
