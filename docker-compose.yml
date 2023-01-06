@@ -20,6 +20,8 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
+    depends_on:
+      - db
 
   ticket:
     image: mrsowlya/ticket:latest
@@ -27,6 +29,8 @@ services:
     restart: on-failure
     ports:
       - "8070:8070"
+    depends_on:
+      - db
 
   flight:
     image: mrsowlya/flight:latest
@@ -34,6 +38,8 @@ services:
     restart: on-failure
     ports:
       - "8060:8060"
+    depends_on:
+      - db
 
   bonus:
     image: mrsowlya/bonus:latest
@@ -41,6 +47,8 @@ services:
     restart: on-failure
     ports:
       - "8050:8050"
+    depends_on:
+      - db
 
 # TODO добавить сервисы
 

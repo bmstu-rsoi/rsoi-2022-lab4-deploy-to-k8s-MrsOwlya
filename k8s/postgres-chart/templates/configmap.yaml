@@ -21,7 +21,7 @@ data:
     end
     $$;
     {{- end }}
-    {{- range $database := .Values.datases }}
+    {{- range $database := .Values.databases }}
     CREATE DATABASE {{ $database.name }};
     GRANT ALL PRIVILEGES ON DATABASE {{ $database.name }} TO {{ $database.user }};
     {{- end }}
